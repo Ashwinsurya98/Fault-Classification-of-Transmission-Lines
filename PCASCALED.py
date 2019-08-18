@@ -50,6 +50,3 @@ plt.xlabel("First PCA comp")
 plt.ylabel("Second PCA comp")
 pca.components_
 
-from tsne import bh_sne
-X_2d = bh_sne(X)
-plt.scatter(X_2d[:, 0], X_2d[:, 1], c=df['tar'])
