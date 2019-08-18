@@ -35,19 +35,6 @@ out=out.ravel()
 #Splitting the Data
 X_train, X_test, y_train, y_test = train_test_split(X, out, random_state = 0)
 
-# training a linear SVM classifier 
-from sklearn.svm import SVC 
-svm_model_linear = SVC(kernel = 'linear', C = 1).fit(X_train, y_train) 
-svm_predictions = svm_model_linear.predict(X_test) 
-
-# model accuracy for X_test   
-accuracy = svm_model_linear.score(X_test, y_test) 
-  
-# creating a confusion matrix 
-cm = confusion_matrix(y_test, svm_predictions) 
-a=cm.sum()
-accuracy = (cm[0][0]+cm[1][1]+cm[2][2]+cm[3][3]+cm[4][4]+cm[5][5]+cm[6][6]+cm[7][7]+cm[8][8]+cm[9][9]+cm[10][10])/a
-print("Accuracy: "+ str(accuracy*100)+"%")
 
 #gridsearch cv
 from sklearn.model_selection import GridSearchCV
@@ -68,12 +55,4 @@ print("Accuracy: "+ str(accuracy*100)+"%")
 
 
 
-from sklearn.svm import NuSVC
-clf = NuSVC(gamma='scale', nu=0.1)
-clf.fit(X_train, y_train)
-y_pred=clf.predict(X_test)
-cm = confusion_matrix(y_test,y_pred) 
-a=cm.sum()
-accuracy = (cm[0][0]+cm[1][1]+cm[2][2]+cm[3][3]+cm[4][4]+cm[5][5]+cm[6][6]+cm[7][7]+cm[8][8]+cm[9][9]+cm[10][10])/a
-print("Accuracy: "+ str(accuracy*100)+"%")
 
